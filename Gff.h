@@ -327,8 +327,16 @@ namespace Gff {
 		Array<SmartPtr<Gene> > genes;
 		map<string,SmartPtr<Gene> > name_genes;
 		map<string/*chrom*/, set<SmartPtr<Gene> >* > sorted_genes;
+		typedef map<string,SmartPtr<Gene> >::iterator NameGeneMapI;
 		
-	
+		inline NameGeneMapI name_genes_begin(){
+			return name_genes.begin();
+		}
+		
+		inline NameGeneMapI name_genes_end(){
+			return name_genes.end();
+		}
+		
 		inline string getGeneNameSepByDot(string transcriptName){
 			vector<string> nameComp;
 			StringUtil::split(transcriptName,".",nameComp);
